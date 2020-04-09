@@ -15,12 +15,12 @@
         *ngIf="form.get('email').invalid && form.get('email').touched"
         class="invalid-feedback"
       >
-        <span
-          *ngIf="form.get('email').errors.required"
-        >Поле не может быть пустым</span>
-        <span
-          *ngIf="form.get('email').errors.email"
-        >Введите корректный email</span>
+        <span *ngIf="form.get('email').errors.required"
+          >Поле не может быть пустым</span
+        >
+        <span *ngIf="form.get('email').errors.email"
+          >Введите корректный email</span
+        >
       </div>
     </div>
 
@@ -33,30 +33,35 @@
         name="password"
         formControlName="password"
       />
-      <div class="invalid-feedback"
+      <div
+        class="invalid-feedback"
         *ngIf="form.get('password').invalid && form.get('password').touched"
       >
-        <span
-          *ngIf="form.get('password').errors.required"
-        >
-           Поле не может быть пустым
+        <span *ngIf="form.get('password').errors.required">
+          Поле не может быть пустым
         </span>
 
-        <span
-          *ngIf="form.get('password').errors.minlength"
-        >
-          Длина пароля должна быть не менее {{form.get('password').errors.minlength.requiredLength}} символов.
-          Сейчас количество символов {{form.get('password').errors.minlength.actualLength}}.
+        <span *ngIf="form.get('password').errors.minlength">
+          Длина пароля должна быть не менее
+          {{ form.get("password").errors.minlength.requiredLength }} символов.
+          Сейчас количество символов
+          {{ form.get("password").errors.minlength.actualLength }}.
         </span>
       </div>
     </div>
 
-    <fieldset>
+    <fieldset formGroupName="address">
       <legend class="h2 text-center">Адрес</legend>
 
       <div class="form-group">
         <label for="country">Страна</label>
-        <select id="country" class="form-control" name="country">
+
+        <select
+          id="country"
+          class="form-control"
+          name="country"
+          formControlName="country"
+        >
           <option value="ru">Россия</option>
           <option value="ua">Украина</option>
           <option value="by">Беларусь</option>
@@ -64,8 +69,16 @@
       </div>
 
       <div class="form-group">
+        <label for="city">Город</label>
         <div class="input-group">
-          <input type="text" class="form-control" />
+          <input
+            type="text"
+            id="city"
+            class="form-control"
+            name="city"
+            formControlName="city"
+          />
+
           <div class="input-group-append">
             <button class="btn btn-outline-secondary btn-sm" type="button">
               Добавить столицу
@@ -88,7 +101,13 @@
     </fieldset>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-primary lar" type="submit" [disabled]="form.invalid">Отправить</button>
+      <button
+        class="btn btn-primary lar"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Отправить
+      </button>
     </div>
   </form>
 </div>
