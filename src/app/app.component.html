@@ -88,16 +88,20 @@
       </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset formGroupName="skills">
       <legend class="h2 text-center">Ваши навыки</legend>
-      <button class="btn btn-primary btn-sm" type="button">
+      <button class="btn btn-primary btn-sm mb-3" type="button" (click)="addSkill()">
         Добавить умение
       </button>
 
-      <div class="form-group">
-        <label></label>
-        <input class="form-control" type="text" name="" />
+      <div
+        class="form-group"
+        *ngFor="let control of form.get('skills').controls; let idx = index"
+      >
+        <label>Умение {{ idx + 1}}</label>
+        <input class="form-control" type="text" name="" [formControlName]="idx"/>
       </div>
+
     </fieldset>
 
     <div class="d-flex justify-content-end">
