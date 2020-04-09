@@ -15,12 +15,22 @@
         *ngIf="form.get('email').invalid && form.get('email').touched"
         class="invalid-feedback"
       >
-        <span *ngIf="form.get('email').errors.required"
-          >Поле не может быть пустым</span
+        <span
+          *ngIf="form.get('email').errors.required"
         >
-        <span *ngIf="form.get('email').errors.email"
-          >Введите корректный email</span
-        >
+          Поле не может быть пустым
+          </span >
+        <span
+          *ngIf="form.get('email').errors.email"
+          >
+          Введите корректный email
+          </span>
+
+          <span
+          *ngIf="form.get('email').errors.restrictedEmail"
+          >
+          Email {{ form.get('email').value }} запрещен
+          </span>
       </div>
     </div>
 
