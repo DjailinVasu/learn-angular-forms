@@ -1,3 +1,56 @@
 <div class="container pt-5">
-   <h1 class="text-center"> {{title}} </h1>
+  <h1 class="text-center">{{ title }}</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" class="form-control" type="text" name="" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Text</label>
+      <input id="password" class="form-control" type="password" name="" />
+    </div>
+
+    <fieldset>
+      <legend class="h2 text-center">Адрес</legend>
+
+      <div class="form-group">
+        <label for="country">Страна</label>
+        <select id="country" class="form-control" name="country">
+          <option value="ru">Россия</option>
+          <option value="ua">Украина</option>
+          <option value="by">Беларусь</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary btn-sm" type="button">
+              Добавить столицу
+            </button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="h2 text-center">Ваши навыки</legend>
+      <button class="btn btn-primary btn-sm" type="button">Добавить умение</button>
+
+      <div class="form-group">
+        <label></label>
+        <input class="form-control" type="text" name="">
+      </div>
+    </fieldset>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary lar" type="submit">Отправить</button>
+    </div>
+  </form>
 </div>
